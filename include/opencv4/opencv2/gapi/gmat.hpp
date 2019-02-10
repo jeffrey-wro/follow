@@ -26,6 +26,13 @@ namespace cv
 class GNode;
 struct GOrigin;
 
+/** \addtogroup gapi_data_objects
+ * @{
+ *
+ * @brief Data-representing objects which can be used to build G-API
+ * expressions.
+ */
+
 class GAPI_EXPORTS GMat
 {
 public:
@@ -39,6 +46,12 @@ private:
     std::shared_ptr<GOrigin> m_priv;
 };
 
+/** @} */
+
+/**
+ * \addtogroup gapi_meta_args
+ * @{
+ */
 struct GAPI_EXPORTS GMatDesc
 {
     // FIXME: Default initializers in C++14
@@ -119,7 +132,10 @@ static inline GMatDesc empty_gmat_desc() { return GMatDesc{-1,-1,{-1,-1}}; }
 #if !defined(GAPI_STANDALONE)
 class Mat;
 GAPI_EXPORTS GMatDesc descr_of(const cv::Mat &mat);
+GAPI_EXPORTS GMatDesc descr_of(const cv::UMat &mat);
 #endif // !defined(GAPI_STANDALONE)
+
+/** @} */
 
 namespace gapi { namespace own {
     class Mat;
